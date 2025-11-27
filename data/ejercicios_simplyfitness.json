@@ -1,0 +1,797 @@
+{
+    "grupos_musculares": {
+        "Pectorales": [
+            {
+                "id": "press-de-banca-con-barra",
+                "nombre": "Press de banca con barra",
+                "grupo_muscular": "Pectorales",
+                "descripcion_resumida": "Ejercicio fundamental para desarrollar el pecho. Trabaja principalmente los pectorales mayores con énfasis en la fuerza y masa muscular. Es uno de los movimientos básicos del entrenamiento de fuerza.",
+                "pasos": [
+                    "Acuéstate en el banco con los pies firmemente apoyados en el suelo",
+                    "Agarra la barra con un agarre más amplio que el ancho de los hombros, manteniendo los antebrazos perpendiculares al suelo",
+                    "Desengancha la barra y bájala lentamente hasta la parte inferior del pecho",
+                    "Empuja la barra hacia arriba contrayendo los pectorales hasta que los brazos estén casi rectos",
+                    "Mantén los codos hacia afuera y los hombros apoyados en el banco durante todo el movimiento"
+                ],
+                "equipo": "barra y banco plano",
+                "nivel": "Intermedio",
+                "url_fuente": "https://www.simplyfitness.com/es/pages/barbell-bench-press",
+                "imagen_principal_url": null,
+                "advertencias": "Mantén los hombros apoyados en el banco. No rebotes la barra en el pecho. Usa un spotter para cargas pesadas."
+            },
+            {
+                "id": "press-banca-inclinado-con-mancuernas",
+                "nombre": "Press banca inclinado con mancuernas",
+                "grupo_muscular": "Pectorales",
+                "descripcion_resumida": "Variante del press de banca que enfatiza la parte superior del pecho. El ángulo inclinado permite un mayor rango de movimiento y trabaja los deltoides anteriores como músculos secundarios.",
+                "pasos": [
+                    "Ajusta el banco a un ángulo de 30-45 grados",
+                    "Siéntate con las mancuernas en los muslos",
+                    "Acuéstate llevando las mancuernas a la altura de los hombros",
+                    "Empuja las mancuernas hacia arriba hasta extender los brazos",
+                    "Baja controladamente hasta sentir estiramiento en el pecho"
+                ],
+                "equipo": "mancuernas y banco inclinado",
+                "nivel": "Intermedio",
+                "url_fuente": "https://www.simplyfitness.com/es/pages/incline-dumbbell-bench-press",
+                "imagen_principal_url": null,
+                "advertencias": "No uses un ángulo mayor a 45 grados para mantener el énfasis en el pecho."
+            },
+            {
+                "id": "aperturas-en-maquina-peck-deck",
+                "nombre": "Aperturas en máquina Peck Deck o Contractora",
+                "grupo_muscular": "Pectorales",
+                "descripcion_resumida": "Ejercicio de aislamiento para el pecho que elimina la participación de los tríceps. Ideal para trabajar la contracción máxima del pectoral y mejorar la conexión mente-músculo.",
+                "pasos": [
+                    "Ajusta el asiento para que los codos queden a la altura del pecho",
+                    "Coloca los antebrazos en los acolchados de la máquina",
+                    "Junta los codos frente al pecho contrayendo los pectorales",
+                    "Regresa lentamente a la posición inicial manteniendo tensión",
+                    "Evita usar impulso y enfócate en la contracción"
+                ],
+                "equipo": "máquina peck deck",
+                "nivel": "Principiante",
+                "url_fuente": "https://www.simplyfitness.com/es/pages/peck-deck",
+                "imagen_principal_url": null,
+                "advertencias": ""
+            },
+            {
+                "id": "cruce-de-poleas",
+                "nombre": "Cruce de poleas",
+                "grupo_muscular": "Pectorales",
+                "descripcion_resumida": "Ejercicio de aislamiento que permite trabajar el pecho con tensión constante. Excelente para definir y esculpir los pectorales, especialmente la línea central del pecho.",
+                "pasos": [
+                    "Colócate en el centro de las poleas altas con un pie adelante",
+                    "Agarra las manijas con los brazos extendidos a los lados",
+                    "Inclínate ligeramente hacia adelante desde la cadera",
+                    "Junta las manos frente al pecho en un movimiento de abrazo",
+                    "Regresa controladamente a la posición inicial"
+                ],
+                "equipo": "máquina de poleas",
+                "nivel": "Intermedio",
+                "url_fuente": "https://www.simplyfitness.com/es/pages/cable-crossover",
+                "imagen_principal_url": null,
+                "advertencias": "Mantén una ligera flexión en los codos durante todo el movimiento."
+            },
+            {
+                "id": "press-de-banca-inclinado-con-barra",
+                "nombre": "Press de banca inclinado con barra",
+                "grupo_muscular": "Pectorales",
+                "descripcion_resumida": "Variante del press de banca con barra en banco inclinado. Enfatiza la porción clavicular del pectoral mayor (parte superior del pecho) y permite manejar más peso que con mancuernas.",
+                "pasos": [
+                    "Ajusta el banco a 30-45 grados de inclinación",
+                    "Acuéstate y agarra la barra con agarre medio-amplio",
+                    "Desengancha la barra y bájala hacia la parte superior del pecho",
+                    "Empuja la barra hacia arriba hasta extender los brazos",
+                    "Mantén los pies firmes en el suelo y la espalda baja apoyada"
+                ],
+                "equipo": "barra y banco inclinado",
+                "nivel": "Intermedio",
+                "url_fuente": "https://www.simplyfitness.com/es/pages/incline-barbell-bench-press",
+                "imagen_principal_url": null,
+                "advertencias": "No uses un ángulo excesivo que traslade el trabajo a los hombros."
+            },
+            {
+                "id": "press-de-banca-con-mancuernas",
+                "nombre": "Press de banca con mancuernas",
+                "grupo_muscular": "Pectorales",
+                "descripcion_resumida": "Variante del press de banca que permite mayor rango de movimiento y trabajo unilateral. Ayuda a corregir desbalances musculares y requiere mayor estabilización.",
+                "pasos": [
+                    "Siéntate en el banco con las mancuernas en los muslos",
+                    "Acuéstate llevando las mancuernas a los lados del pecho",
+                    "Empuja las mancuernas hacia arriba hasta juntar en el centro",
+                    "Baja controladamente hasta sentir estiramiento en el pecho",
+                    "Mantén los codos a 45 grados del torso"
+                ],
+                "equipo": "mancuernas y banco plano",
+                "nivel": "Intermedio",
+                "url_fuente": "https://www.simplyfitness.com/es/pages/dumbbell-bench-press",
+                "imagen_principal_url": null,
+                "advertencias": "Ten cuidado al posicionar las mancuernas pesadas al inicio y final del ejercicio."
+            },
+            {
+                "id": "aperturas-con-mancuernas",
+                "nombre": "Aperturas con mancuernas",
+                "grupo_muscular": "Pectorales",
+                "descripcion_resumida": "Ejercicio de aislamiento clásico para el pecho. Proporciona un excelente estiramiento del pectoral y trabaja principalmente la porción media del pecho.",
+                "pasos": [
+                    "Acuéstate en el banco con las mancuernas sobre el pecho",
+                    "Baja las mancuernas en un arco amplio con codos ligeramente flexionados",
+                    "Desciende hasta sentir estiramiento en el pecho",
+                    "Regresa las mancuernas al centro contrayendo los pectorales",
+                    "Mantén la misma flexión de codos durante todo el movimiento"
+                ],
+                "equipo": "mancuernas y banco plano",
+                "nivel": "Intermedio",
+                "url_fuente": "https://www.simplyfitness.com/es/pages/dumbbell-fly",
+                "imagen_principal_url": null,
+                "advertencias": "No uses peso excesivo. Mantén los codos ligeramente flexionados para proteger las articulaciones."
+            },
+            {
+                "id": "aperturas-inclinadas-con-mancuernas",
+                "nombre": "Aperturas Inclinadas con mancuernas",
+                "grupo_muscular": "Pectorales",
+                "descripcion_resumida": "Variante de aperturas en banco inclinado que enfatiza la parte superior del pecho. Combina el estiramiento de las aperturas con el ángulo que trabaja el pectoral clavicular.",
+                "pasos": [
+                    "Ajusta el banco a 30-45 grados",
+                    "Acuéstate con las mancuernas sobre el pecho",
+                    "Abre los brazos en arco con codos ligeramente flexionados",
+                    "Baja hasta sentir estiramiento en la parte superior del pecho",
+                    "Regresa contrayendo el pecho hasta juntar las mancuernas arriba"
+                ],
+                "equipo": "mancuernas y banco inclinado",
+                "nivel": "Intermedio",
+                "url_fuente": "https://www.simplyfitness.com/es/pages/incline-dumbbell-fly",
+                "imagen_principal_url": null,
+                "advertencias": "Usa menos peso que en las aperturas planas debido al ángulo."
+            },
+            {
+                "id": "press-de-banca-en-maquina-sentado",
+                "nombre": "Press de banca en máquina sentado",
+                "grupo_muscular": "Pectorales",
+                "descripcion_resumida": "Ejercicio guiado que permite trabajar el pecho de forma segura. Ideal para principiantes o para series de alto volumen al final del entrenamiento.",
+                "pasos": [
+                    "Ajusta el asiento para que las manijas queden a la altura del pecho",
+                    "Siéntate con la espalda completamente apoyada",
+                    "Agarra las manijas y empuja hacia adelante",
+                    "Extiende los brazos sin bloquear los codos",
+                    "Regresa controladamente a la posición inicial"
+                ],
+                "equipo": "máquina de press de pecho",
+                "nivel": "Principiante",
+                "url_fuente": "https://www.simplyfitness.com/es/pages/chest-press-machine",
+                "imagen_principal_url": null,
+                "advertencias": ""
+            },
+            {
+                "id": "press-de-banca-declinado-con-barra",
+                "nombre": "Press de banca declinado con barra",
+                "grupo_muscular": "Pectorales",
+                "descripcion_resumida": "Variante del press de banca que enfatiza la porción inferior del pecho. Permite manejar más peso que en el press plano debido al ángulo favorable.",
+                "pasos": [
+                    "Ajusta el banco a un ángulo declinado de 15-30 grados",
+                    "Asegura los pies en los soportes del banco",
+                    "Agarra la barra y desengancha",
+                    "Baja la barra hacia la parte inferior del pecho",
+                    "Empuja hacia arriba hasta extender los brazos"
+                ],
+                "equipo": "barra y banco declinado",
+                "nivel": "Intermedio",
+                "url_fuente": "https://www.simplyfitness.com/es/pages/barbell-declined-bench-press",
+                "imagen_principal_url": null,
+                "advertencias": "Asegura bien los pies. Ten precaución con la sangre que fluye a la cabeza en posición declinada."
+            },
+            {
+                "id": "press-de-banca-declinado-con-mancuernas",
+                "nombre": "Press de banca declinado con mancuernas",
+                "grupo_muscular": "Pectorales",
+                "descripcion_resumida": "Variante con mancuernas del press declinado. Ofrece mayor rango de movimiento y trabajo unilateral para la parte inferior del pecho.",
+                "pasos": [
+                    "Siéntate en el banco declinado con las mancuernas",
+                    "Asegura los pies y acuéstate llevando las mancuernas al pecho",
+                    "Empuja las mancuernas hacia arriba",
+                    "Baja controladamente hasta los lados del pecho",
+                    "Mantén el control durante todo el movimiento"
+                ],
+                "equipo": "mancuernas y banco declinado",
+                "nivel": "Intermedio",
+                "url_fuente": "https://www.simplyfitness.com/es/pages/dumbbell-declined-bench-press",
+                "imagen_principal_url": null,
+                "advertencias": "Ten cuidado al posicionar y retirar las mancuernas en posición declinada."
+            },
+            {
+                "id": "flexiones",
+                "nombre": "Flexiones",
+                "grupo_muscular": "Pectorales",
+                "descripcion_resumida": "Ejercicio clásico con el propio peso corporal. Trabaja pecho, tríceps y core de forma funcional. Excelente para entrenar en cualquier lugar sin equipo.",
+                "pasos": [
+                    "Colócate en posición de plancha con las manos a la anchura de los hombros",
+                    "Mantén el cuerpo recto desde la cabeza hasta los pies",
+                    "Baja el cuerpo flexionando los codos hasta que el pecho casi toque el suelo",
+                    "Empuja hacia arriba hasta extender los brazos",
+                    "Mantén el core activado durante todo el movimiento"
+                ],
+                "equipo": "propio peso",
+                "nivel": "Principiante",
+                "url_fuente": "https://www.simplyfitness.com/es/pages/push-ups",
+                "imagen_principal_url": null,
+                "advertencias": "No dejes caer las caderas. Mantén la espalda neutral."
+            }
+        ],
+        "Espalda": [
+            {
+                "id": "remo-con-mancuerna-a-una-mano",
+                "nombre": "Remo con mancuerna a una mano",
+                "grupo_muscular": "Espalda",
+                "descripcion_resumida": "Ejercicio unilateral fundamental para desarrollar el grosor de la espalda. Permite un gran rango de movimiento y ayuda a corregir desbalances musculares entre ambos lados.",
+                "pasos": [
+                    "Apoya una rodilla y mano en un banco",
+                    "Con la otra mano agarra la mancuerna dejándola colgar",
+                    "Mantén la espalda recta y paralela al suelo",
+                    "Tira de la mancuerna hacia la cadera llevando el codo hacia atrás",
+                    "Baja controladamente hasta extender el brazo completamente"
+                ],
+                "equipo": "mancuerna y banco",
+                "nivel": "Intermedio",
+                "url_fuente": "https://www.simplyfitness.com/es/pages/dumbbell-bent-over-row-single-arm",
+                "imagen_principal_url": null,
+                "advertencias": "Mantén la espalda neutral. No rotes el torso durante el movimiento."
+            },
+            {
+                "id": "jalon-con-agarre-ancho",
+                "nombre": "Jalón con agarre ancho",
+                "grupo_muscular": "Espalda",
+                "descripcion_resumida": "Ejercicio clave para desarrollar el ancho de la espalda. Trabaja principalmente los dorsales con énfasis en la porción externa, creando la forma de V del torso.",
+                "pasos": [
+                    "Siéntate en la máquina de jalones y ajusta el soporte de piernas",
+                    "Agarra la barra con un agarre amplio (más ancho que los hombros)",
+                    "Inclínate ligeramente hacia atrás",
+                    "Tira de la barra hacia la parte superior del pecho",
+                    "Regresa controladamente a la posición inicial"
+                ],
+                "equipo": "máquina de poleas",
+                "nivel": "Principiante",
+                "url_fuente": "https://www.simplyfitness.com/es/pages/wide-grip-pulldown",
+                "imagen_principal_url": null,
+                "advertencias": "No uses impulso excesivo. Evita arquear demasiado la espalda baja."
+            },
+            {
+                "id": "remo-en-maquina",
+                "nombre": "Remo en máquina",
+                "grupo_muscular": "Espalda",
+                "descripcion_resumida": "Ejercicio de remo sentado que trabaja el grosor de la espalda media. Permite usar buen peso de forma segura y mantener tensión constante en los músculos.",
+                "pasos": [
+                    "Siéntate en la máquina con el pecho contra el soporte",
+                    "Agarra las manijas con los brazos extendidos",
+                    "Tira de las manijas hacia tu torso llevando los codos hacia atrás",
+                    "Aprieta los omóplatos juntos en la contracción",
+                    "Regresa controladamente a la posición inicial"
+                ],
+                "equipo": "máquina de remo",
+                "nivel": "Principiante",
+                "url_fuente": "https://www.simplyfitness.com/es/pages/seated-cable-row",
+                "imagen_principal_url": null,
+                "advertencias": "Mantén el torso estable. No uses impulso con la espalda baja."
+            },
+            {
+                "id": "jalon-al-pecho-con-agarre-cerrado",
+                "nombre": "Jalón al pecho con agarre cerrado",
+                "grupo_muscular": "Espalda",
+                "descripcion_resumida": "Variante del jalón que enfatiza la parte central de la espalda. El agarre cerrado permite mayor rango de movimiento y trabaja más los bíceps como músculos secundarios.",
+                "pasos": [
+                    "Siéntate en la máquina de jalones",
+                    "Agarra la barra con las manos juntas (agarre cerrado)",
+                    "Tira de la barra hacia el pecho manteniendo el torso erguido",
+                    "Contrae los dorsales en la posición baja",
+                    "Regresa controladamente extendiendo los brazos"
+                ],
+                "equipo": "máquina de poleas",
+                "nivel": "Principiante",
+                "url_fuente": "https://www.simplyfitness.com/es/pages/close-grip-pulldown",
+                "imagen_principal_url": null,
+                "advertencias": ""
+            },
+            {
+                "id": "remo-con-barra",
+                "nombre": "Remo con barra",
+                "grupo_muscular": "Espalda",
+                "descripcion_resumida": "Ejercicio compuesto fundamental para construir masa en la espalda. Trabaja toda la cadena posterior y permite manejar cargas pesadas para desarrollar fuerza y tamaño.",
+                "pasos": [
+                    "De pie con las rodillas ligeramente flexionadas",
+                    "Inclínate hacia adelante desde la cadera manteniendo la espalda recta",
+                    "Agarra la barra con agarre pronado a la anchura de los hombros",
+                    "Tira de la barra hacia el abdomen bajo llevando los codos hacia atrás",
+                    "Baja controladamente hasta extender los brazos"
+                ],
+                "equipo": "barra",
+                "nivel": "Intermedio",
+                "url_fuente": "https://www.simplyfitness.com/es/pages/barbell-row",
+                "imagen_principal_url": null,
+                "advertencias": "Mantén la espalda neutral. No redondees la zona lumbar. Usa cinturón si manejas cargas pesadas."
+            },
+            {
+                "id": "peso-muerto-con-barra",
+                "nombre": "Peso muerto con barra",
+                "grupo_muscular": "Espalda",
+                "descripcion_resumida": "Uno de los ejercicios más completos del entrenamiento. Trabaja toda la cadena posterior incluyendo espalda baja, glúteos e isquiotibiales. Fundamental para desarrollar fuerza general.",
+                "pasos": [
+                    "Colócate frente a la barra con los pies a la anchura de las caderas",
+                    "Agarra la barra con agarre pronado o mixto",
+                    "Mantén la espalda recta y el pecho alto",
+                    "Empuja con las piernas mientras extiendes las caderas",
+                    "Baja la barra controladamente manteniendo la espalda neutral"
+                ],
+                "equipo": "barra",
+                "nivel": "Avanzado",
+                "url_fuente": "https://www.simplyfitness.com/es/pages/barbell-deadlift",
+                "imagen_principal_url": null,
+                "advertencias": "Técnica correcta es crucial. No redondees la espalda. Usa cinturón para cargas pesadas. Considera asesoría profesional al comenzar."
+            },
+            {
+                "id": "elevaciones-en-barra-fija",
+                "nombre": "Elevaciones en barra fija",
+                "grupo_muscular": "Espalda",
+                "descripcion_resumida": "Ejercicio con peso corporal que desarrolla fuerza y masa en la espalda. Trabaja principalmente dorsales y es excelente para mejorar la fuerza relativa.",
+                "pasos": [
+                    "Cuélgate de la barra con agarre pronado más ancho que los hombros",
+                    "Cruza los pies detrás de ti",
+                    "Tira de tu cuerpo hacia arriba hasta que la barbilla pase la barra",
+                    "Baja controladamente hasta extender completamente los brazos",
+                    "Evita balancearte o usar impulso"
+                ],
+                "equipo": "barra fija",
+                "nivel": "Intermedio",
+                "url_fuente": "https://www.simplyfitness.com/es/pages/pull-up",
+                "imagen_principal_url": null,
+                "advertencias": "Si no puedes hacer dominadas completas, usa banda de asistencia o máquina asistida."
+            }
+        ],
+        "Hombros": [
+            {
+                "id": "press-de-hombro-con-mancuernas",
+                "nombre": "Press de hombro con mancuernas",
+                "grupo_muscular": "Hombros",
+                "descripcion_resumida": "Ejercicio fundamental para desarrollar los deltoides. Permite un rango de movimiento natural y trabaja los tres cabezas del deltoides con énfasis en la porción anterior y media.",
+                "pasos": [
+                    "Siéntate en un banco con respaldo vertical",
+                    "Sostén las mancuernas a la altura de los hombros con las palmas hacia adelante",
+                    "Empuja las mancuernas hacia arriba hasta extender los brazos",
+                    "Baja controladamente hasta que las mancuernas estén a la altura de las orejas",
+                    "Mantén el core activado y la espalda apoyada"
+                ],
+                "equipo": "mancuernas y banco con respaldo",
+                "nivel": "Intermedio",
+                "url_fuente": "https://www.simplyfitness.com/es/pages/dumbbell-shoulder-press",
+                "imagen_principal_url": null,
+                "advertencias": "No arquees excesivamente la espalda baja. Evita bloquear los codos en la parte superior."
+            },
+            {
+                "id": "elevacion-lateral-con-mancuernas",
+                "nombre": "Elevación lateral con mancuernas",
+                "grupo_muscular": "Hombros",
+                "descripcion_resumida": "Ejercicio de aislamiento para el deltoides medio. Crea el ancho de los hombros y es fundamental para desarrollar la forma redondeada del deltoides.",
+                "pasos": [
+                    "De pie con una mancuerna en cada mano a los lados",
+                    "Mantén una ligera flexión en los codos",
+                    "Eleva los brazos hacia los lados hasta la altura de los hombros",
+                    "Mantén las muñecas ligeramente inclinadas hacia abajo",
+                    "Baja controladamente a la posición inicial"
+                ],
+                "equipo": "mancuernas",
+                "nivel": "Principiante",
+                "url_fuente": "https://www.simplyfitness.com/es/pages/dumbbell-lateral-raise",
+                "imagen_principal_url": null,
+                "advertencias": "No uses peso excesivo. Evita balancear el cuerpo o usar impulso."
+            },
+            {
+                "id": "elevacion-frontal-con-mancuernas",
+                "nombre": "Elevación frontal con mancuernas",
+                "grupo_muscular": "Hombros",
+                "descripcion_resumida": "Ejercicio de aislamiento para el deltoides anterior. Complementa los ejercicios de press y ayuda a desarrollar la parte frontal de los hombros.",
+                "pasos": [
+                    "De pie con las mancuernas frente a los muslos",
+                    "Mantén los brazos casi rectos con ligera flexión en los codos",
+                    "Eleva una o ambas mancuernas al frente hasta la altura de los hombros",
+                    "Mantén el torso estable sin balancear",
+                    "Baja controladamente a la posición inicial"
+                ],
+                "equipo": "mancuernas",
+                "nivel": "Principiante",
+                "url_fuente": "https://www.simplyfitness.com/es/pages/dumbbell-front-raise",
+                "imagen_principal_url": null,
+                "advertencias": "No uses impulso. Evita elevar por encima de la altura de los hombros."
+            },
+            {
+                "id": "press-militar-sentado-con-barra",
+                "nombre": "Press militar sentado con barra",
+                "grupo_muscular": "Hombros",
+                "descripcion_resumida": "Ejercicio compuesto clásico para hombros. Permite manejar más peso que con mancuernas y desarrolla fuerza y masa en los deltoides.",
+                "pasos": [
+                    "Siéntate en un banco con respaldo vertical",
+                    "Coloca la barra sobre la parte superior del pecho",
+                    "Agarra la barra con un agarre ligeramente más ancho que los hombros",
+                    "Empuja la barra hacia arriba hasta extender los brazos",
+                    "Baja controladamente hasta la parte superior del pecho"
+                ],
+                "equipo": "barra y banco con respaldo",
+                "nivel": "Intermedio",
+                "url_fuente": "https://www.simplyfitness.com/es/pages/seated-barbell-shoulder-press",
+                "imagen_principal_url": null,
+                "advertencias": "Mantén la espalda apoyada. No arquees excesivamente la zona lumbar."
+            }
+        ],
+        "Bíceps": [
+            {
+                "id": "curl-con-barra",
+                "nombre": "Curl con barra",
+                "grupo_muscular": "Bíceps",
+                "descripcion_resumida": "Ejercicio fundamental para desarrollar los bíceps. Permite manejar buen peso y trabaja ambos brazos simultáneamente para construir masa y fuerza en los brazos.",
+                "pasos": [
+                    "De pie con las rodillas ligeramente flexionadas y la espalda recta",
+                    "Sostén la barra con agarre supinado a la anchura de los hombros",
+                    "Mantén los codos pegados al torso",
+                    "Flexiona los antebrazos llevando la barra hacia los hombros",
+                    "Baja controladamente hasta extender completamente los brazos"
+                ],
+                "equipo": "barra",
+                "nivel": "Principiante",
+                "url_fuente": "https://www.simplyfitness.com/es/pages/barbell-curl",
+                "imagen_principal_url": null,
+                "advertencias": "No balancees el cuerpo. Mantén los codos fijos en su posición."
+            },
+            {
+                "id": "curl-alterno-con-mancuernas",
+                "nombre": "Curl alterno con mancuernas",
+                "grupo_muscular": "Bíceps",
+                "descripcion_resumida": "Ejercicio unilateral que permite enfocarse en cada brazo individualmente. Ayuda a corregir desbalances y permite mejor conexión mente-músculo.",
+                "pasos": [
+                    "De pie con una mancuerna en cada mano, brazos extendidos",
+                    "Mantén las palmas mirando hacia el cuerpo inicialmente",
+                    "Flexiona un brazo rotando la muñeca hacia arriba (supinación)",
+                    "Contrae el bíceps en la parte superior",
+                    "Baja y repite con el otro brazo alternadamente"
+                ],
+                "equipo": "mancuernas",
+                "nivel": "Principiante",
+                "url_fuente": "https://www.simplyfitness.com/es/pages/alternating-dumbbell-curl",
+                "imagen_principal_url": null,
+                "advertencias": "Evita balancear el torso. Mantén los codos estables."
+            },
+            {
+                "id": "curl-alterno-de-martillo-con-mancuernas",
+                "nombre": "Curl alterno de martillo con mancuernas",
+                "grupo_muscular": "Bíceps",
+                "descripcion_resumida": "Variante del curl que trabaja el braquial y braquiorradial además del bíceps. Ayuda a desarrollar el grosor del brazo y la fuerza del antebrazo.",
+                "pasos": [
+                    "De pie con las mancuernas a los lados, palmas mirándose entre sí",
+                    "Mantén las muñecas en posición neutra durante todo el movimiento",
+                    "Flexiona un brazo llevando la mancuerna hacia el hombro",
+                    "Mantén el codo pegado al torso",
+                    "Baja y alterna con el otro brazo"
+                ],
+                "equipo": "mancuernas",
+                "nivel": "Principiante",
+                "url_fuente": "https://www.simplyfitness.com/es/pages/hammer-curl",
+                "imagen_principal_url": null,
+                "advertencias": ""
+            },
+            {
+                "id": "curl-concentrado-con-mancuernas",
+                "nombre": "Curl concentrado con mancuernas",
+                "grupo_muscular": "Bíceps",
+                "descripcion_resumida": "Ejercicio de aislamiento puro para el bíceps. Elimina el impulso y permite una contracción máxima del músculo.",
+                "pasos": [
+                    "Siéntate en un banco con las piernas abiertas",
+                    "Apoya el codo de un brazo en la parte interna del muslo",
+                    "Con la mancuerna colgando, flexiona el brazo hacia el hombro",
+                    "Contrae fuertemente el bíceps en la parte superior",
+                    "Baja controladamente hasta extender el brazo"
+                ],
+                "equipo": "mancuerna y banco",
+                "nivel": "Intermedio",
+                "url_fuente": "https://www.simplyfitness.com/es/pages/dumbbell-concentration-curl",
+                "imagen_principal_url": null,
+                "advertencias": "Usa peso moderado para mantener la forma estricta."
+            }
+        ],
+        "Tríceps": [
+            {
+                "id": "extension-de-triceps-tumbado",
+                "nombre": "Extensión de tríceps tumbado",
+                "grupo_muscular": "Tríceps",
+                "descripcion_resumida": "Ejercicio clásico para desarrollar masa en los tríceps. Trabaja las tres cabezas del tríceps con énfasis en la cabeza larga, proporcionando un excelente estiramiento.",
+                "pasos": [
+                    "Acuéstate en un banco con la barra sobre el pecho",
+                    "Extiende los brazos hacia arriba con agarre cerrado",
+                    "Baja la barra hacia la frente flexionando solo los codos",
+                    "Mantén los codos apuntando hacia arriba sin que se abran",
+                    "Extiende los brazos hasta la posición inicial"
+                ],
+                "equipo": "barra y banco",
+                "nivel": "Intermedio",
+                "url_fuente": "https://www.simplyfitness.com/es/pages/lying-triceps-extension",
+                "imagen_principal_url": null,
+                "advertencias": "Mantén los codos fijos. No uses peso excesivo que comprometa la forma."
+            },
+            {
+                "id": "extension-de-triceps-en-polea",
+                "nombre": "Extensión de tríceps en polea",
+                "grupo_muscular": "Tríceps",
+                "descripcion_resumida": "Ejercicio de aislamiento que mantiene tensión constante en los tríceps. Excelente para trabajar la definición y el bombeo muscular.",
+                "pasos": [
+                    "De pie frente a la polea alta con barra recta",
+                    "Agarra la barra con las manos juntas, palmas hacia abajo",
+                    "Mantén los codos pegados al torso",
+                    "Empuja la barra hacia abajo hasta extender completamente los brazos",
+                    "Regresa controladamente sin dejar que los codos se muevan"
+                ],
+                "equipo": "máquina de poleas",
+                "nivel": "Principiante",
+                "url_fuente": "https://www.simplyfitness.com/es/pages/triceps-pressdown",
+                "imagen_principal_url": null,
+                "advertencias": "No balancees el cuerpo. Mantén los codos estables."
+            },
+            {
+                "id": "extension-de-triceps-en-polea-con-cuerda",
+                "nombre": "Extensión de tríceps en polea con cuerda",
+                "grupo_muscular": "Tríceps",
+                "descripcion_resumida": "Variante con cuerda que permite mayor rango de movimiento al final del ejercicio. Trabaja especialmente la cabeza lateral del tríceps.",
+                "pasos": [
+                    "Agarra la cuerda en la polea alta con agarre neutro",
+                    "Mantén los codos pegados al torso",
+                    "Empuja la cuerda hacia abajo extendiendo los brazos",
+                    "Separa las puntas de la cuerda al final del movimiento",
+                    "Regresa controladamente a la posición inicial"
+                ],
+                "equipo": "máquina de poleas con cuerda",
+                "nivel": "Principiante",
+                "url_fuente": "https://www.simplyfitness.com/es/pages/cable-rope-puschdown",
+                "imagen_principal_url": null,
+                "advertencias": ""
+            },
+            {
+                "id": "fondos-en-barras-paralelas",
+                "nombre": "Fondos en barras paralelas",
+                "grupo_muscular": "Tríceps",
+                "descripcion_resumida": "Ejercicio compuesto con peso corporal que desarrolla fuerza y masa en tríceps. También trabaja el pecho dependiendo de la inclinación del torso.",
+                "pasos": [
+                    "Sujétate en las barras paralelas con los brazos extendidos",
+                    "Mantén el torso erguido para enfatizar tríceps",
+                    "Baja el cuerpo flexionando los codos hasta 90 grados",
+                    "Empuja hacia arriba hasta extender los brazos",
+                    "Mantén los codos cerca del cuerpo"
+                ],
+                "equipo": "barras paralelas",
+                "nivel": "Intermedio",
+                "url_fuente": "https://www.simplyfitness.com/es/pages/parallel-dip-bar",
+                "imagen_principal_url": null,
+                "advertencias": "Si eres principiante, usa máquina asistida o banda de resistencia."
+            }
+        ],
+        "Abdominales": [
+            {
+                "id": "crunch",
+                "nombre": "Crunch",
+                "grupo_muscular": "Abdominales",
+                "descripcion_resumida": "Ejercicio básico para trabajar el recto abdominal. Movimiento controlado que aísla los abdominales superiores de forma efectiva.",
+                "pasos": [
+                    "Acuéstate boca arriba con las rodillas flexionadas",
+                    "Coloca las manos detrás de la cabeza o cruzadas en el pecho",
+                    "Eleva los hombros del suelo contrayendo los abdominales",
+                    "Mantén la zona lumbar pegada al suelo",
+                    "Baja controladamente sin relajar completamente"
+                ],
+                "equipo": "propio peso",
+                "nivel": "Principiante",
+                "url_fuente": "https://www.simplyfitness.com/es/pages/crunch",
+                "imagen_principal_url": null,
+                "advertencias": "No tires del cuello. El movimiento debe venir del abdomen."
+            },
+            {
+                "id": "plancha",
+                "nombre": "Plancha",
+                "grupo_muscular": "Abdominales",
+                "descripcion_resumida": "Ejercicio isométrico que trabaja todo el core. Desarrolla estabilidad, fuerza y resistencia en abdominales, espalda baja y hombros.",
+                "pasos": [
+                    "Colócate en posición de plancha sobre los antebrazos",
+                    "Mantén el cuerpo recto desde la cabeza hasta los pies",
+                    "Activa el core y los glúteos",
+                    "Mantén la posición sin dejar caer las caderas",
+                    "Respira normalmente durante el ejercicio"
+                ],
+                "equipo": "propio peso",
+                "nivel": "Principiante",
+                "url_fuente": "https://www.simplyfitness.com/es/pages/plank",
+                "imagen_principal_url": null,
+                "advertencias": "No dejes caer las caderas ni las eleves demasiado. Mantén la espalda neutral."
+            },
+            {
+                "id": "elevacion-de-piernas",
+                "nombre": "Elevación de piernas",
+                "grupo_muscular": "Abdominales",
+                "descripcion_resumida": "Ejercicio avanzado que trabaja la parte inferior del abdomen. Requiere buena fuerza de core y control para ejecutarse correctamente.",
+                "pasos": [
+                    "Cuélgate de una barra con agarre pronado",
+                    "Mantén las piernas juntas y ligeramente flexionadas",
+                    "Eleva las piernas hasta que queden paralelas al suelo o más arriba",
+                    "Contrae los abdominales en la parte superior",
+                    "Baja controladamente sin balancearte"
+                ],
+                "equipo": "barra fija",
+                "nivel": "Avanzado",
+                "url_fuente": "https://www.simplyfitness.com/es/pages/hanging-leg-raise",
+                "imagen_principal_url": null,
+                "advertencias": "Evita usar impulso. Si es muy difícil, comienza con elevaciones de rodillas."
+            },
+            {
+                "id": "crunch-oblicuo",
+                "nombre": "Crunch oblicuo",
+                "grupo_muscular": "Abdominales",
+                "descripcion_resumida": "Ejercicio que trabaja los oblicuos y los abdominales laterales. Ayuda a desarrollar la cintura y mejorar la estabilidad rotacional.",
+                "pasos": [
+                    "Acuéstate boca arriba con las rodillas flexionadas",
+                    "Coloca las manos detrás de la cabeza",
+                    "Eleva el hombro hacia la rodilla opuesta en diagonal",
+                    "Contrae los oblicuos en la parte superior",
+                    "Alterna entre ambos lados"
+                ],
+                "equipo": "propio peso",
+                "nivel": "Principiante",
+                "url_fuente": "https://www.simplyfitness.com/es/pages/oblique-crunch",
+                "imagen_principal_url": null,
+                "advertencias": "No tires del cuello. El movimiento debe ser controlado."
+            }
+        ],
+        "Piernas": [
+            {
+                "id": "sentadilla",
+                "nombre": "Sentadilla",
+                "grupo_muscular": "Piernas",
+                "descripcion_resumida": "El rey de los ejercicios de piernas. Movimiento compuesto fundamental que trabaja cuádriceps, glúteos e isquiotibiales. Desarrolla fuerza, masa muscular y potencia en todo el tren inferior.",
+                "pasos": [
+                    "Coloca la barra sobre el trapecio y los hombros",
+                    "Separa los pies al ancho de los hombros con las puntas ligeramente hacia afuera",
+                    "Mantén el pecho alto y la espalda recta",
+                    "Desciende flexionando rodillas y caderas como si te sentaras",
+                    "Baja hasta que los muslos estén paralelos al suelo",
+                    "Empuja con los talones para volver a la posición inicial"
+                ],
+                "equipo": "barra y rack",
+                "nivel": "Intermedio",
+                "url_fuente": "https://www.simplyfitness.com/es/pages/squat",
+                "imagen_principal_url": null,
+                "advertencias": "Mantén la espalda neutral. No dejes que las rodillas sobrepasen las puntas de los pies. Usa rack de seguridad. Considera asesoría profesional para aprender la técnica correcta."
+            },
+            {
+                "id": "prensa-de-piernas",
+                "nombre": "Prensa de piernas",
+                "grupo_muscular": "Piernas",
+                "descripcion_resumida": "Ejercicio de máquina que permite trabajar las piernas con cargas pesadas de forma segura. Reduce la carga en la espalda baja comparado con la sentadilla.",
+                "pasos": [
+                    "Siéntate en la máquina con la espalda completamente apoyada",
+                    "Coloca los pies en la plataforma al ancho de los hombros",
+                    "Libera los seguros y baja la plataforma flexionando las rodillas",
+                    "Desciende hasta que las rodillas formen 90 grados",
+                    "Empuja la plataforma hacia arriba sin bloquear las rodillas"
+                ],
+                "equipo": "máquina de prensa de piernas",
+                "nivel": "Principiante",
+                "url_fuente": "https://www.simplyfitness.com/es/pages/leg-press",
+                "imagen_principal_url": null,
+                "advertencias": "No despegues la espalda baja del respaldo. No bloquees las rodillas en la extensión."
+            },
+            {
+                "id": "extension-de-piernas",
+                "nombre": "Extensión de piernas",
+                "grupo_muscular": "Piernas",
+                "descripcion_resumida": "Ejercicio de aislamiento para los cuádriceps. Permite trabajar la parte frontal del muslo sin involucrar otros músculos.",
+                "pasos": [
+                    "Siéntate en la máquina con la espalda apoyada",
+                    "Ajusta el rodillo para que quede sobre los tobillos",
+                    "Agarra las manijas laterales",
+                    "Extiende las piernas hasta que estén rectas",
+                    "Baja controladamente sin dejar que las pesas toquen"
+                ],
+                "equipo": "máquina de extensión de piernas",
+                "nivel": "Principiante",
+                "url_fuente": "https://www.simplyfitness.com/es/pages/leg-extension",
+                "imagen_principal_url": null,
+                "advertencias": "No uses peso excesivo. Evita bloquear las rodillas bruscamente."
+            },
+            {
+                "id": "curl-de-pierna-tumbado-en-maquina-de-femoral",
+                "nombre": "Curl de pierna tumbado en máquina de femoral",
+                "grupo_muscular": "Piernas",
+                "descripcion_resumida": "Ejercicio de aislamiento para los isquiotibiales. Trabaja la parte posterior del muslo de forma efectiva.",
+                "pasos": [
+                    "Acuéstate boca abajo en la máquina",
+                    "Ajusta el rodillo para que quede sobre los tobillos",
+                    "Agarra las manijas para estabilizarte",
+                    "Flexiona las piernas llevando los talones hacia los glúteos",
+                    "Baja controladamente hasta extender las piernas"
+                ],
+                "equipo": "máquina de curl de piernas",
+                "nivel": "Principiante",
+                "url_fuente": "https://www.simplyfitness.com/es/pages/lying-leg-curl",
+                "imagen_principal_url": null,
+                "advertencias": "No despegues las caderas del banco. Mantén el movimiento controlado."
+            },
+            {
+                "id": "zancada",
+                "nombre": "Zancada",
+                "grupo_muscular": "Piernas",
+                "descripcion_resumida": "Ejercicio unilateral que trabaja cuádriceps, glúteos e isquiotibiales. Mejora el equilibrio y ayuda a corregir desbalances musculares.",
+                "pasos": [
+                    "De pie con los pies juntos, sostén mancuernas a los lados",
+                    "Da un paso largo hacia adelante con una pierna",
+                    "Baja el cuerpo hasta que ambas rodillas formen 90 grados",
+                    "La rodilla trasera debe casi tocar el suelo",
+                    "Empuja con el talón delantero para volver a la posición inicial"
+                ],
+                "equipo": "mancuernas o barra",
+                "nivel": "Intermedio",
+                "url_fuente": "https://www.simplyfitness.com/es/pages/lunge",
+                "imagen_principal_url": null,
+                "advertencias": "Mantén el torso erguido. No dejes que la rodilla delantera sobrepase la punta del pie."
+            },
+            {
+                "id": "peso-muerto-rumano-con-barra",
+                "nombre": "Peso muerto rumano (piernas rectas) con barra",
+                "grupo_muscular": "Piernas",
+                "descripcion_resumida": "Ejercicio que enfatiza los isquiotibiales y glúteos. Excelente para desarrollar la cadena posterior y mejorar la fuerza de la cadera.",
+                "pasos": [
+                    "De pie con la barra frente a ti, pies al ancho de caderas",
+                    "Agarra la barra con agarre pronado",
+                    "Mantén las piernas casi rectas con ligera flexión en rodillas",
+                    "Inclínate hacia adelante desde la cadera bajando la barra",
+                    "Baja hasta sentir estiramiento en los isquiotibiales",
+                    "Regresa a la posición inicial extendiendo las caderas"
+                ],
+                "equipo": "barra",
+                "nivel": "Intermedio",
+                "url_fuente": "https://www.simplyfitness.com/es/pages/barbell-stiff-leg-deadlift",
+                "imagen_principal_url": null,
+                "advertencias": "Mantén la espalda neutral. No redondees la zona lumbar."
+            }
+        ],
+        "Gemelos": [
+            {
+                "id": "elevacion-de-gemelos-sentado",
+                "nombre": "Elevación de gemelos sentado",
+                "grupo_muscular": "Gemelos",
+                "descripcion_resumida": "Ejercicio que trabaja el sóleo, la porción profunda de la pantorrilla. La posición sentada enfatiza este músculo sobre el gastrocnemio.",
+                "pasos": [
+                    "Siéntate en la máquina con las rodillas bajo el soporte",
+                    "Coloca las puntas de los pies en la plataforma",
+                    "Libera el seguro y baja los talones lo más posible",
+                    "Eleva los talones contrayendo los gemelos",
+                    "Mantén la contracción arriba y baja controladamente"
+                ],
+                "equipo": "máquina de gemelos sentado",
+                "nivel": "Principiante",
+                "url_fuente": "https://www.simplyfitness.com/es/pages/seated-calf-raise",
+                "imagen_principal_url": null,
+                "advertencias": "Usa rango completo de movimiento. No rebotes en la parte inferior."
+            },
+            {
+                "id": "elevacion-de-gemelos-de-pie",
+                "nombre": "Elevación de gemelos de pie",
+                "grupo_muscular": "Gemelos",
+                "descripcion_resumida": "Ejercicio que trabaja principalmente el gastrocnemio, la porción superficial de la pantorrilla. Fundamental para desarrollar volumen en las pantorrillas.",
+                "pasos": [
+                    "Colócate en la máquina con los hombros bajo los soportes",
+                    "Coloca las puntas de los pies en la plataforma",
+                    "Baja los talones lo más posible para estirar los gemelos",
+                    "Elévate sobre las puntas de los pies lo más alto posible",
+                    "Mantén la contracción y baja controladamente"
+                ],
+                "equipo": "máquina de gemelos de pie",
+                "nivel": "Principiante",
+                "url_fuente": "https://www.simplyfitness.com/es/pages/standing-calf-raise",
+                "imagen_principal_url": null,
+                "advertencias": "Mantén las piernas rectas. Usa rango completo de movimiento."
+            }
+        ]
+    },
+    "nota": "Este archivo contiene una muestra representativa de ejercicios de cada grupo muscular extraídos de simplyfitness.com. Debido al gran volumen de ejercicios (100+), se han incluido los ejercicios más fundamentales y populares de cada categoría. La estructura puede ser expandida agregando los ejercicios restantes siguiendo el mismo formato."
+}

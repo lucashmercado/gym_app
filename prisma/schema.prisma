@@ -1,0 +1,175 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  password  String
+  role      String   // "PROFESSOR" or "STUDENT"
+  phone     String?
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  studentProfile   StudentProfile? @relation("StudentUser")
+  professorStudents StudentProfile[] @relation("ProfessorUser")
+  
+  plansAsStudent   Plan[] @relation("StudentPlans")
+  plansAsProfessor Plan[] @relation("ProfessorPlans")
+  planTemplates    PlanTemplate[] @relation("ProfessorTemplates")
+
+  progress         Progress[]
+  weighIns         WeighIn[]
+  payments         Payment[]
+}
+
+model StudentProfile {
+  id               String   @id @default(uuid())
+  userId           String   @unique
+  user             User     @relation("StudentUser", fields: [userId], references: [id])
+  
+  professorId      String
+  professor        User     @relation("ProfessorUser", fields: [professorId], references: [id])
+
+  startDate        DateTime @default(now())
+  membershipExpiry DateTime?
+  monthlyFee       Float?
+  observations     String?
+  
+  // New fields
+  age              Int?
+  details          String?  // Personal details
+  pathologies      String?  // Medical conditions/pathologies
+}
+
+model Plan {
+  id          String   @id @default(uuid())
+  studentId   String
+  student     User     @relation("StudentPlans", fields: [studentId], references: [id])
+  
+  professorId String
+  professor   User     @relation("ProfessorPlans", fields: [professorId], references: [id])
+
+  templateId  String?
+  template    PlanTemplate? @relation(fields: [templateId], references: [id])
+
+  name        String
+  description String?
+  startDate   DateTime
+  endDate     DateTime?
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  exercises   PlanExercise[]
+}
+
+model Exercise {
+  id          String   @id @default(uuid())
+  name        String   @unique
+  description String?
+  muscleGroup String?
+  equipment   String?
+  difficulty  String?
+  videoUrl    String?
+  imageUrl    String?
+  createdAt   DateTime @default(now())
+
+  planExercises     PlanExercise[]
+  templateExercises TemplateExercise[]
+}
+
+model PlanExercise {
+  id          String   @id @default(uuid())
+  planId      String
+  plan        Plan     @relation(fields: [planId], references: [id], onDelete: Cascade)
+  
+  exerciseId  String
+  exercise    Exercise @relation(fields: [exerciseId], references: [id])
+
+  day         String   // e.g., "Monday" or "Day 1"
+  sets        Int
+  reps        String?  // e.g., "10-12"
+  weight      Float?   // Suggested weight
+  rest        Int?     // In seconds
+  order       Int      @default(0)
+
+  progress    Progress[]
+}
+
+model Progress {
+  id             String       @id @default(uuid())
+  planExerciseId String
+  planExercise   PlanExercise @relation(fields: [planExerciseId], references: [id])
+  
+  studentId      String
+  student        User         @relation(fields: [studentId], references: [id])
+
+  date           DateTime     @default(now())
+  setsDone       Int
+  repsDone       String?      // JSON or text: "10, 10, 8"
+  weightUsed     Float?
+  comments       String?
+}
+
+model WeighIn {
+  id           String   @id @default(uuid())
+  studentId    String
+  student      User     @relation(fields: [studentId], references: [id])
+  
+  date         DateTime @default(now())
+  weight       Float
+  observations String?
+}
+
+model Payment {
+  id           String   @id @default(uuid())
+  studentId    String
+  student      User     @relation(fields: [studentId], references: [id])
+  
+  date         DateTime @default(now())
+  amount       Float
+  method       String?
+  observations String?
+}
+
+model PlanTemplate {
+  id          String   @id @default(uuid())
+  professorId String
+  professor   User     @relation("ProfessorTemplates", fields: [professorId], references: [id])
+  
+  name        String
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  exercises   TemplateExercise[]
+  plans       Plan[]
+}
+
+model TemplateExercise {
+  id         String       @id @default(uuid())
+  templateId String
+  template   PlanTemplate @relation(fields: [templateId], references: [id], onDelete: Cascade)
+  
+  exerciseId String
+  exercise   Exercise     @relation(fields: [exerciseId], references: [id])
+  
+  day        String
+  sets       Int
+  reps       String?
+  weight     Float?
+  rest       Int?
+  order      Int          @default(0)
+}
