@@ -23,8 +23,8 @@ export async function GET(request: Request) {
         const messages = await prisma.message.findMany({
             where: {
                 OR: [
-                    { senderId: currentUserId, receiverId: otherUserId },
-                    { senderId: otherUserId, receiverId: currentUserId }
+                    { senderId: currentUserId as string, receiverId: otherUserId },
+                    { senderId: otherUserId, receiverId: currentUserId as string }
                 ]
             },
             include: {
@@ -44,7 +44,7 @@ export async function GET(request: Request) {
         await prisma.message.updateMany({
             where: {
                 senderId: otherUserId,
-                receiverId: currentUserId,
+                receiverId: currentUserId as string,
                 read: false
             },
             data: {
@@ -82,7 +82,7 @@ export async function POST(request: Request) {
 
         const message = await prisma.message.create({
             data: {
-                senderId: session.userId,
+                senderId: session.userId as string,
                 receiverId,
                 content
             },
