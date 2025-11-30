@@ -61,7 +61,7 @@ export async function GET(request: Request) {
         })
 
         // Return file
-        return new NextResponse(buffer, {
+        return new NextResponse(new Uint8Array(buffer), {
             headers: {
                 'Content-Type': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
                 'Content-Disposition': `attachment; filename=pagos_${new Date().toISOString().split('T')[0]}.xlsx`
