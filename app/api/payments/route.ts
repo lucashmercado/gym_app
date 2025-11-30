@@ -46,15 +46,15 @@ export async function POST(request: Request) {
         // Update student membership expiry (add 30 days)
         const studentProfile = await prisma.studentProfile.findUnique({ where: { userId: studentId } })
         if (studentProfile) {
-            const currentExpiry = studentProfile.membershipExpiry && new Date(studentProfile.membershipExpiry) > new Date()
-                ? new Date(studentProfile.membershipExpiry)
+            const currentExpiry = studentProfile.membershipEndDate && new Date(studentProfile.membershipEndDate) > new Date()
+                ? new Date(studentProfile.membershipEndDate)
                 : new Date()
 
             const newExpiry = new Date(currentExpiry.getTime() + 30 * 24 * 60 * 60 * 1000)
 
             await prisma.studentProfile.update({
                 where: { userId: studentId },
-                data: { membershipExpiry: newExpiry },
+                data: { membershipEndDate: newExpiry },
             })
         }
 

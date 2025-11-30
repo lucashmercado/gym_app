@@ -3,15 +3,18 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Sidebar from '@/components/Sidebar'
+import ProgressChart from '@/components/ProgressChart'
 
 const studentNavItems = [
     { name: 'Mi Rutina', href: '/dashboard/student' },
     { name: 'Progreso', href: '/dashboard/student/progress' },
+    { name: 'Mensajes', href: '/dashboard/student/messages' },
 ]
 
 export default function StudentProgress() {
     const [user, setUser] = useState<any>(null)
     const [progress, setProgress] = useState<any[]>([])
+    const [plan, setPlan] = useState<any>(null)
     const router = useRouter()
 
     useEffect(() => {
@@ -22,9 +25,14 @@ export default function StudentProgress() {
                     router.push('/login')
                 } else {
                     setUser(data.user)
+                    // Fetch progress
                     fetch('/api/student/progress')
                         .then((res) => res.json())
                         .then((data) => setProgress(data.progress || []))
+                    // Fetch current plan
+                    fetch('/api/student/plan')
+                        .then((res) => res.json())
+                        .then((data) => setPlan(data.plan))
                 }
             })
     }, [router])
@@ -35,15 +43,15 @@ export default function StudentProgress() {
     const isActive = user.active
 
     // Check if membership has expired
-    const membershipExpiry = user.studentProfile?.membershipExpiry
-    const isExpired = membershipExpiry ? new Date(membershipExpiry) < new Date() : false
+    const membershipEndDate = user.studentProfile?.membershipEndDate
+    const isExpired = membershipEndDate ? new Date(membershipEndDate) < new Date() : false
 
     // Determine if student can access progress
     const canAccessProgress = isActive && !isExpired
 
     return (
         <div>
-            <Sidebar items={studentNavItems} userRole="STUDENT" />
+            <Sidebar items={studentNavItems} userRole="STUDENT" userName={user.name} />
 
             <main className="container-fluid p-4">
                 <div className="container-fluid">
@@ -52,14 +60,6 @@ export default function StudentProgress() {
                             <h1 className="h2">Mi Progreso</h1>
                             <p className="text-muted">Historial de entrenamientos completados</p>
                         </div>
-                        <button
-                            onClick={() => {
-                                fetch('/api/auth/logout', { method: 'POST' }).then(() => router.push('/login'))
-                            }}
-                            className="btn btn-outline-danger"
-                        >
-                            Salir
-                        </button>
                     </div>
 
                     {!canAccessProgress ? (
@@ -74,7 +74,7 @@ export default function StudentProgress() {
                             <p className="mb-3">
                                 {!isActive
                                     ? 'Tu cuenta está inactiva. No puedes acceder a tu historial de progreso en este momento.'
-                                    : `Tu membresía venció el ${new Date(membershipExpiry).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' })}. No puedes acceder a tu historial de progreso hasta que renueves tu membresía.`
+                                    : `Tu membresía venció el ${new Date(membershipEndDate).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' })}. No puedes acceder a tu historial de progreso hasta que renueves tu membresía.`
                                 }
                             </p>
                             <hr />
@@ -82,42 +82,53 @@ export default function StudentProgress() {
                                 <strong>Por favor contacta a tu profesor para renovar tu membresía o activar tu cuenta.</strong>
                             </p>
                         </div>
-                    ) : progress.length > 0 ? (
-                        <div className="card">
-                            <div className="card-body">
-                                <div className="table-responsive">
-                                    <table className="table table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th>Fecha</th>
-                                                <th>Ejercicio</th>
-                                                <th>Series</th>
-                                                <th>Reps</th>
-                                                <th>Peso</th>
-                                                <th>Comentarios</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {progress.map((p) => (
-                                                <tr key={p.id}>
-                                                    <td>{new Date(p.date).toLocaleDateString('es-ES')}</td>
-                                                    <td className="fw-bold">{p.planExercise.exercise.name}</td>
-                                                    <td><span className="badge bg-primary">{p.setsDone}</span></td>
-                                                    <td>{p.repsDone}</td>
-                                                    <td>{p.weightUsed ? `${p.weightUsed} kg` : 'Peso corporal'}</td>
-                                                    <td className="text-muted">{p.comments || '-'}</td>
-                                                </tr>
-                                            ))}
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
                     ) : (
-                        <div className="alert alert-info" role="alert">
-                            <h4 className="alert-heading">Sin Progreso Registrado</h4>
-                            <p>Aún no has completado ningún ejercicio. Marca los ejercicios como completados en tu rutina para ver tu progreso aquí.</p>
-                        </div>
+                        <>
+                            {/* Progress Chart */}
+                            {plan && <ProgressChart plan={plan} progress={progress} />}
+
+                            {/* Progress History Table */}
+                            {progress.length > 0 ? (
+                                <div className="card mt-4">
+                                    <div className="card-header">
+                                        <h5 className="mb-0">Historial de Entrenamientos</h5>
+                                    </div>
+                                    <div className="card-body">
+                                        <div className="table-responsive">
+                                            <table className="table table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Fecha</th>
+                                                        <th>Ejercicio</th>
+                                                        <th>Series</th>
+                                                        <th>Reps</th>
+                                                        <th>Peso</th>
+                                                        <th>Comentarios</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {progress.map((p) => (
+                                                        <tr key={p.id}>
+                                                            <td>{new Date(p.date).toLocaleDateString('es-ES')}</td>
+                                                            <td className="fw-bold">{p.planExercise.exercise.name}</td>
+                                                            <td><span className="badge bg-primary">{p.setsDone}</span></td>
+                                                            <td>{p.repsDone}</td>
+                                                            <td>{p.weightUsed ? `${p.weightUsed} kg` : 'Peso corporal'}</td>
+                                                            <td className="text-muted">{p.comments || '-'}</td>
+                                                        </tr>
+                                                    ))}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            ) : (
+                                <div className="alert alert-info" role="alert">
+                                    <h4 className="alert-heading">Sin Progreso Registrado</h4>
+                                    <p>Aún no has completado ningún ejercicio. Marca los ejercicios como completados en tu rutina para ver tu progreso aquí.</p>
+                                </div>
+                            )}
+                        </>
                     )}
                 </div>
             </main>

@@ -67,3 +67,42 @@ export async function PUT(request: Request, { params }: { params: Promise<{ id: 
         return NextResponse.json({ error: error.message || 'Internal server error' }, { status: 500 })
     }
 }
+
+// DELETE - Delete plan
+export async function DELETE(request: Request, { params }: { params: Promise<{ id: string }> }) {
+    try {
+        const session = await getSession()
+        if (!session || session.role !== 'PROFESSOR') {
+            return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+        }
+
+        const { id: planId } = await params
+
+        // Get plan to verify ownership
+        const plan = await prisma.plan.findUnique({
+            where: { id: planId }
+        })
+
+        if (!plan) {
+            return NextResponse.json({ error: 'Plan not found' }, { status: 404 })
+        }
+
+        // Verify ownership
+        if (plan.professorId !== session.userId) {
+            return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+        }
+
+        // Delete plan (cascade will delete exercises and progress)
+        await prisma.plan.delete({
+            where: { id: planId }
+        })
+
+        return NextResponse.json({ message: 'Plan deleted successfully' })
+    } catch (error) {
+        console.error('Error deleting plan:', error)
+        return NextResponse.json({
+            error: 'Internal server error',
+            details: error instanceof Error ? error.message : 'Unknown error'
+        }, { status: 500 })
+    }
+}

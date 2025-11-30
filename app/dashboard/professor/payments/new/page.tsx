@@ -8,7 +8,9 @@ const professorNavItems = [
     { name: 'Dashboard', href: '/dashboard/professor' },
     { name: 'Estudiantes', href: '/dashboard/professor/students' },
     { name: 'Planes', href: '/dashboard/professor/plans' },
+    { name: 'Plantillas', href: '/dashboard/professor/templates' },
     { name: 'Ejercicios', href: '/dashboard/professor/exercises' },
+    { name: 'Mensajes', href: '/dashboard/professor/messages' },
     { name: 'Pagos', href: '/dashboard/professor/payments' },
 ]
 
@@ -125,3 +127,4 @@ export default function NewPayment() {
         </div>
     )
 }
+

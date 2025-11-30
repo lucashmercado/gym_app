@@ -29,9 +29,18 @@ export default function PaymentList() {
                 <div className="container-fluid">
                     <div className="d-flex justify-content-between align-items-center mb-4">
                         <h1 className="h2">Pagos</h1>
-                        <Link href="/dashboard/professor/payments/new" className="btn btn-primary">
-                            + Registrar Pago
-                        </Link>
+                        <div className="d-flex gap-2">
+                            <a
+                                href="/api/export/payments"
+                                className="btn btn-success"
+                                download
+                            >
+                                📊 Exportar a Excel
+                            </a>
+                            <Link href="/dashboard/professor/payments/new" className="btn btn-primary">
+                                + Registrar Pago
+                            </Link>
+                        </div>
                     </div>
 
                     <div className="card">

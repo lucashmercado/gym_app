@@ -29,9 +29,18 @@ export default function StudentList() {
                 <div className="container-fluid">
                     <div className="d-flex justify-content-between align-items-center mb-4">
                         <h1 className="h2">Estudiantes</h1>
-                        <Link href="/dashboard/professor/students/new" className="btn btn-primary">
-                            + Nuevo Estudiante
-                        </Link>
+                        <div className="d-flex gap-2">
+                            <a
+                                href="/api/export/students"
+                                className="btn btn-success"
+                                download
+                            >
+                                📊 Exportar a Excel
+                            </a>
+                            <Link href="/dashboard/professor/students/new" className="btn btn-primary">
+                                + Nuevo Estudiante
+                            </Link>
+                        </div>
                     </div>
 
                     <div className="card">

@@ -7,6 +7,7 @@ import Sidebar from '@/components/Sidebar'
 const studentNavItems = [
     { name: 'Mi Rutina', href: '/dashboard/student' },
     { name: 'Progreso', href: '/dashboard/student/progress' },
+    { name: 'Mensajes', href: '/dashboard/student/messages' },
 ]
 
 export default function StudentDashboard() {

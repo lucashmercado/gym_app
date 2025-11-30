@@ -56,7 +56,7 @@ export async function POST(request: Request) {
                     create: {
                         professorId: session.userId as string,
                         monthlyFee: isNaN(fee) ? 0 : fee,
-                        membershipExpiry: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000), // +30 days
+                        membershipEndDate: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000), // +30 days
                         age: studentAge,
                         details: details || null,
                         pathologies: pathologies || null

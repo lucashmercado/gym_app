@@ -31,62 +31,74 @@ export async function GET(request: Request, { params }: { params: Promise<{ id: 
 }
 
 export async function PUT(request: Request, { params }: { params: Promise<{ id: string }> }) {
-    const session = await getSession()
-    if (!session || session.role !== 'PROFESSOR') {
-        return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
-    }
+    try {
+        const session = await getSession()
+        if (!session || session.role !== 'PROFESSOR') {
+            return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+        }
 
-    const { id: studentId } = await params
-    const body = await request.json()
-    const { name, email, phone, password, monthlyFee, active, age, details, pathologies } = body
+        const { id: studentId } = await params
+        const body = await request.json()
+        const { name, email, phone, password, monthlyFee, active, age, details, pathologies, membershipType, membershipEndDate } = body
 
-    // Verify student exists and belongs to professor
-    const student = await prisma.user.findUnique({
-        where: { id: studentId },
-        include: { studentProfile: true }
-    })
-
-    if (!student || student.role !== 'STUDENT') {
-        return NextResponse.json({ error: 'Student not found' }, { status: 404 })
-    }
-
-    if (student.studentProfile?.professorId !== session.userId) {
-        return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
-    }
-
-    // Prepare update data
-    const updateData: any = {}
-    if (name) updateData.name = name
-    if (email) updateData.email = email
-    if (phone !== undefined) updateData.phone = phone
-    if (active !== undefined) updateData.active = active
-    if (password) {
-        updateData.password = await bcrypt.hash(password, 10)
-    }
-
-    // Update user
-    const updatedStudent = await prisma.user.update({
-        where: { id: studentId },
-        data: updateData,
-        include: { studentProfile: true }
-    })
-
-    // Update student profile with all fields
-    if (student.studentProfile) {
-        const profileUpdateData: any = {}
-        if (monthlyFee !== undefined) profileUpdateData.monthlyFee = parseFloat(monthlyFee)
-        if (age !== undefined) profileUpdateData.age = age ? parseInt(age) : null
-        if (details !== undefined) profileUpdateData.details = details
-        if (pathologies !== undefined) profileUpdateData.pathologies = pathologies
-
-        await prisma.studentProfile.update({
-            where: { id: student.studentProfile.id },
-            data: profileUpdateData
+        // Verify student exists and belongs to professor
+        const student = await prisma.user.findUnique({
+            where: { id: studentId },
+            include: { studentProfile: true }
         })
-    }
 
-    return NextResponse.json({
-        message: 'Student updated successfully',
-        student: updatedStudent
-    })
+        if (!student || student.role !== 'STUDENT') {
+            return NextResponse.json({ error: 'Student not found' }, { status: 404 })
+        }
+
+        if (student.studentProfile?.professorId !== session.userId) {
+            return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+        }
+
+        // Prepare update data
+        const updateData: any = {}
+        if (name) updateData.name = name
+        if (email) updateData.email = email
+        if (phone !== undefined) updateData.phone = phone
+        if (active !== undefined) updateData.active = active
+        if (password) {
+            updateData.password = await bcrypt.hash(password, 10)
+        }
+
+        // Update user
+        const updatedStudent = await prisma.user.update({
+            where: { id: studentId },
+            data: updateData,
+            include: { studentProfile: true }
+        })
+
+        // Update student profile with all fields
+        if (student.studentProfile) {
+            const profileUpdateData: any = {}
+            if (monthlyFee !== undefined) profileUpdateData.monthlyFee = parseFloat(monthlyFee)
+            if (age !== undefined) profileUpdateData.age = age ? parseInt(age) : null
+            if (details !== undefined) profileUpdateData.details = details
+            if (pathologies !== undefined) profileUpdateData.pathologies = pathologies
+            if (membershipType !== undefined) profileUpdateData.membershipType = membershipType
+            if (membershipEndDate !== undefined) {
+                profileUpdateData.membershipEndDate = membershipEndDate ? new Date(membershipEndDate) : null
+            }
+
+            await prisma.studentProfile.update({
+                where: { id: student.studentProfile.id },
+                data: profileUpdateData
+            })
+        }
+
+        return NextResponse.json({
+            message: 'Student updated successfully',
+            student: updatedStudent
+        })
+    } catch (error) {
+        console.error('Error updating student:', error)
+        return NextResponse.json({
+            error: 'Internal server error',
+            details: error instanceof Error ? error.message : 'Unknown error'
+        }, { status: 500 })
+    }
 }

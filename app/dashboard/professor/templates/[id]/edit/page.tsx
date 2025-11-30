@@ -34,6 +34,9 @@ export default function EditTemplate() {
         restTime: 60
     })
     const [exerciseSearch, setExerciseSearch] = useState('')
+    const [selectedMuscleGroup, setSelectedMuscleGroup] = useState('all')
+    const [selectedDifficulty, setSelectedDifficulty] = useState('all')
+    const [selectedEquipment, setSelectedEquipment] = useState('all')
     const [showSuggestions, setShowSuggestions] = useState(false)
     const router = useRouter()
 
@@ -150,11 +153,20 @@ export default function EditTemplate() {
         setShowSuggestions(false)
     }
 
-    const filteredExercises = exerciseSearch
-        ? availableExercises.filter(ex =>
-            ex.name.toLowerCase().includes(exerciseSearch.toLowerCase())
-        )
-        : availableExercises
+    // Filter exercises based on search and filters
+    const filteredExercises = availableExercises.filter(exercise => {
+        const matchesSearch = exerciseSearch === '' ||
+            exercise.name.toLowerCase().includes(exerciseSearch.toLowerCase()) ||
+            exercise.description?.toLowerCase().includes(exerciseSearch.toLowerCase())
+        const matchesMuscleGroup = selectedMuscleGroup === 'all' || exercise.muscleGroup === selectedMuscleGroup
+        const matchesDifficulty = selectedDifficulty === 'all' || exercise.difficulty === selectedDifficulty
+        const matchesEquipment = selectedEquipment === 'all' || exercise.equipment === selectedEquipment
+        return matchesSearch && matchesMuscleGroup && matchesDifficulty && matchesEquipment
+    })
+
+    // Get unique values for filters
+    const muscleGroups = Array.from(new Set(availableExercises.map(e => e.muscleGroup).filter(Boolean)))
+    const equipmentTypes = Array.from(new Set(availableExercises.map(e => e.equipment).filter(Boolean)))
 
     if (loading) {
         return (

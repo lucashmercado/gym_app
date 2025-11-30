@@ -8,7 +8,9 @@ const professorNavItems = [
     { name: 'Dashboard', href: '/dashboard/professor' },
     { name: 'Estudiantes', href: '/dashboard/professor/students' },
     { name: 'Planes', href: '/dashboard/professor/plans' },
+    { name: 'Plantillas', href: '/dashboard/professor/templates' },
     { name: 'Ejercicios', href: '/dashboard/professor/exercises' },
+    { name: 'Mensajes', href: '/dashboard/professor/messages' },
     { name: 'Pagos', href: '/dashboard/professor/payments' },
 ]
 
@@ -29,6 +31,10 @@ function NewPlanContent() {
     })
 
     const [planExercises, setPlanExercises] = useState<any[]>([])
+    const [exerciseSearch, setExerciseSearch] = useState('')
+    const [selectedMuscleGroup, setSelectedMuscleGroup] = useState('all')
+    const [selectedDifficulty, setSelectedDifficulty] = useState('all')
+    const [selectedEquipment, setSelectedEquipment] = useState('all')
 
     useEffect(() => {
         fetch('/api/professor/students').then(res => res.json()).then(data => setStudents(data.students || []))
@@ -62,6 +68,20 @@ function NewPlanContent() {
     const removeExercise = (index: number) => {
         setPlanExercises(planExercises.filter((_, i) => i !== index))
     }
+
+    // Filter exercises based on search and filters
+    const filteredExercises = exercises.filter(exercise => {
+        const matchesSearch = exercise.name.toLowerCase().includes(exerciseSearch.toLowerCase()) ||
+            exercise.description?.toLowerCase().includes(exerciseSearch.toLowerCase())
+        const matchesMuscleGroup = selectedMuscleGroup === 'all' || exercise.muscleGroup === selectedMuscleGroup
+        const matchesDifficulty = selectedDifficulty === 'all' || exercise.difficulty === selectedDifficulty
+        const matchesEquipment = selectedEquipment === 'all' || exercise.equipment === selectedEquipment
+        return matchesSearch && matchesMuscleGroup && matchesDifficulty && matchesEquipment
+    })
+
+    // Get unique values for filters
+    const muscleGroups = Array.from(new Set(exercises.map(e => e.muscleGroup).filter(Boolean)))
+    const equipmentTypes = Array.from(new Set(exercises.map(e => e.equipment).filter(Boolean)))
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
@@ -160,6 +180,63 @@ function NewPlanContent() {
                                     </button>
                                 </div>
 
+                                {/* Exercise Filters */}
+                                <div className="card bg-light border-0 mb-3">
+                                    <div className="card-body">
+                                        <h6 className="mb-3">Buscar Ejercicios</h6>
+                                        <div className="row g-2">
+                                            <div className="col-md-4">
+                                                <input
+                                                    type="text"
+                                                    className="form-control form-control-sm"
+                                                    placeholder="Buscar por nombre..."
+                                                    value={exerciseSearch}
+                                                    onChange={(e) => setExerciseSearch(e.target.value)}
+                                                />
+                                            </div>
+                                            <div className="col-md-3">
+                                                <select
+                                                    className="form-select form-select-sm"
+                                                    value={selectedMuscleGroup}
+                                                    onChange={(e) => setSelectedMuscleGroup(e.target.value)}
+                                                >
+                                                    <option value="all">Todos los grupos</option>
+                                                    {muscleGroups.map(group => (
+                                                        <option key={group} value={group}>{group}</option>
+                                                    ))}
+                                                </select>
+                                            </div>
+                                            <div className="col-md-2">
+                                                <select
+                                                    className="form-select form-select-sm"
+                                                    value={selectedDifficulty}
+                                                    onChange={(e) => setSelectedDifficulty(e.target.value)}
+                                                >
+                                                    <option value="all">Dificultad</option>
+                                                    <option value="Principiante">Principiante</option>
+                                                    <option value="Intermedio">Intermedio</option>
+                                                    <option value="Avanzado">Avanzado</option>
+                                                </select>
+                                            </div>
+                                            <div className="col-md-3">
+                                                <select
+                                                    className="form-select form-select-sm"
+                                                    value={selectedEquipment}
+                                                    onChange={(e) => setSelectedEquipment(e.target.value)}
+                                                >
+                                                    <option value="all">Todo el equipo</option>
+                                                    {equipmentTypes.map(equipment => (
+                                                        <option key={equipment} value={equipment}>{equipment}</option>
+                                                    ))}
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div className="small text-muted mt-2">
+                                            Mostrando {filteredExercises.length} de {exercises.length} ejercicios
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div className="d-flex flex-column gap-3">
                                     {planExercises.map((ex, index) => (
                                         <div key={index} className="border rounded p-3 bg-light">
@@ -173,8 +250,10 @@ function NewPlanContent() {
                                                         required
                                                     >
                                                         <option value="">Seleccionar...</option>
-                                                        {exercises.map(e => (
-                                                            <option key={e.id} value={e.id}>{e.name}</option>
+                                                        {filteredExercises.map(e => (
+                                                            <option key={e.id} value={e.id}>
+                                                                {e.name} - {e.muscleGroup}
+                                                            </option>
                                                         ))}
                                                     </select>
                                                 </div>
@@ -276,3 +355,4 @@ export default function NewPlan() {
         </Suspense>
     )
 }
+

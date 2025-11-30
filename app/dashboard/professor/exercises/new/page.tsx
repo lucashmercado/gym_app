@@ -8,7 +8,9 @@ const professorNavItems = [
     { name: 'Dashboard', href: '/dashboard/professor' },
     { name: 'Estudiantes', href: '/dashboard/professor/students' },
     { name: 'Planes', href: '/dashboard/professor/plans' },
+    { name: 'Plantillas', href: '/dashboard/professor/templates' },
     { name: 'Ejercicios', href: '/dashboard/professor/exercises' },
+    { name: 'Mensajes', href: '/dashboard/professor/messages' },
     { name: 'Pagos', href: '/dashboard/professor/payments' },
 ]
 
@@ -71,13 +73,14 @@ export default function NewExercise() {
                                             required
                                         >
                                             <option value="">Seleccionar...</option>
-                                            <option value="Chest">Pecho</option>
-                                            <option value="Back">Espalda</option>
-                                            <option value="Legs">Piernas</option>
-                                            <option value="Shoulders">Hombros</option>
-                                            <option value="Arms">Brazos</option>
-                                            <option value="Core">Core</option>
-                                            <option value="Cardio">Cardio</option>
+                                            <option value="Pectorales">Pectorales</option>
+                                            <option value="Espalda">Espalda</option>
+                                            <option value="Hombros">Hombros</option>
+                                            <option value="Bíceps">Bíceps</option>
+                                            <option value="Tríceps">Tríceps</option>
+                                            <option value="Abdominales">Abdominales</option>
+                                            <option value="Piernas">Piernas</option>
+                                            <option value="Gemelos">Gemelos</option>
                                         </select>
                                     </div>
 
@@ -134,3 +137,4 @@ export default function NewExercise() {
         </div>
     )
 }
+

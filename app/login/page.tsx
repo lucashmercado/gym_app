@@ -34,7 +34,10 @@ export default function LoginPage() {
                 throw new Error('Error al obtener datos del usuario')
             }
 
-            if (data.user.role === 'PROFESSOR') {
+            // Redirect based on role
+            if (data.user.role === 'ADMIN') {
+                router.push('/dashboard/admin')
+            } else if (data.user.role === 'PROFESSOR') {
                 router.push('/dashboard/professor')
             } else {
                 router.push('/dashboard/student')
@@ -92,6 +95,12 @@ export default function LoginPage() {
                                             required
                                             placeholder="••••••••"
                                         />
+                                    </div>
+
+                                    <div className="mb-3 text-end">
+                                        <Link href="/forgot-password" className="text-decoration-none small">
+                                            ¿Olvidaste tu contraseña?
+                                        </Link>
                                     </div>
 
                                     <button
