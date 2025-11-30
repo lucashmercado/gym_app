@@ -16,8 +16,8 @@ export async function GET() {
         const messages = await prisma.message.findMany({
             where: {
                 OR: [
-                    { senderId: currentUserId },
-                    { receiverId: currentUserId }
+                    { senderId: currentUserId as string },
+                    { receiverId: currentUserId as string }
                 ]
             },
             include: {
