@@ -14,7 +14,7 @@ export async function GET() {
         }
 
         // Check permission
-        if (!hasPermission(session.role, 'canExportData')) {
+        if (!hasPermission(session.role as string, 'canExportData')) {
             return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
         }
 
