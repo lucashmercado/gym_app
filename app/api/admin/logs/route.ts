@@ -12,7 +12,7 @@ export async function GET(request: Request) {
         }
 
         // Only ADMIN can view logs
-        if (!hasPermission(session.role, 'canViewLogs')) {
+        if (!hasPermission(session.role as string, 'canViewLogs')) {
             return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
         }
 

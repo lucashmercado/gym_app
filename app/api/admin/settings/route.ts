@@ -42,7 +42,7 @@ export async function PUT(request: Request) {
         }
 
         // Check if user has permission to manage settings
-        if (!hasPermission(session.role, 'canManageSettings')) {
+        if (!hasPermission(session.role as string, 'canManageSettings')) {
             return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
         }
 

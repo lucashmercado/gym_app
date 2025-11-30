@@ -14,7 +14,7 @@ export async function GET() {
             return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
         }
 
-        if (!hasPermission(session.role, 'canViewAllUsers')) {
+        if (!hasPermission(session.role as string, 'canViewAllUsers')) {
             return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
         }
 
@@ -54,7 +54,7 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
         }
 
-        if (!hasPermission(session.role, 'canManageUsers')) {
+        if (!hasPermission(session.role as string, 'canManageUsers')) {
             return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
         }
 
