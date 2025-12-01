@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 interface MenuItem {
     name: string;
     href: string;
-    icon: JSX.Element;
+    icon: React.ReactNode;
 }
 
 const menuItems: MenuItem[] = [
