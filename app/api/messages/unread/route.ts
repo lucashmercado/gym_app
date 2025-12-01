@@ -14,7 +14,7 @@ export async function GET() {
         // Count unread messages (received by current user and not read)
         const unreadCount = await prisma.message.count({
             where: {
-                receiverId: currentUserId,
+                receiverId: currentUserId as string,
                 read: false
             }
         })

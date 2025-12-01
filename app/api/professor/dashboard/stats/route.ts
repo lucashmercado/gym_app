@@ -14,7 +14,7 @@ export async function GET() {
             return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
         }
 
-        const professorId = session.userId
+        const professorId = session.userId as string
         console.log('Professor ID:', professorId)
 
         // Get current date info

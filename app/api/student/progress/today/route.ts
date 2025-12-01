@@ -17,7 +17,7 @@ export async function GET() {
 
         const completed = await prisma.progress.findMany({
             where: {
-                studentId: session.userId,
+                studentId: session.userId as string,
                 date: {
                     gte: today,
                     lt: tomorrow
@@ -63,7 +63,7 @@ export async function DELETE(request: Request) {
         // Get plan exercises for this day
         const plan = await prisma.plan.findFirst({
             where: {
-                studentId: session.userId,
+                studentId: session.userId as string,
                 active: true
             },
             include: {
@@ -82,7 +82,7 @@ export async function DELETE(request: Request) {
         // Delete progress for these exercises from today
         await prisma.progress.deleteMany({
             where: {
-                studentId: session.userId,
+                studentId: session.userId as string,
                 planExerciseId: { in: exerciseIds },
                 date: {
                     gte: today,
