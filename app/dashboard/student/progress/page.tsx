@@ -85,7 +85,7 @@ export default function StudentProgress() {
                     ) : (
                         <>
                             {/* Progress Chart */}
-                            {plan && <ProgressChart plan={plan} progress={progress} />}
+                            <ProgressChart />
 
                             {/* Progress History Table */}
                             {progress.length > 0 ? (
