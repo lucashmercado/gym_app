@@ -17,7 +17,16 @@ Sistema completo de gestión de gimnasios con roles, permisos, y administración
 2. Instala dependencias: `npm install`
 3. Configura variables de entorno (ver `.env.example`)
 4. Ejecuta migraciones: `npx prisma migrate deploy`
-5. Inicia el servidor: `npm run dev`
+5. Crea usuario admin: `node scripts/create-admin.js`
+6. Inicia el servidor: `npm run dev`
+
+## 🔐 Credenciales por Defecto
+
+**Usuario Administrador:**
+- Email: `admin@gym.com`
+- Contraseña: `admin123`
+
+> ⚠️ Cambia la contraseña después del primer inicio de sesión.
 
 ## 🌐 Variables de Entorno
 
