@@ -241,15 +241,20 @@ export default function StudentDashboard() {
                                             <ul className="list-group list-group-flush">
                                                 {exercises.map((ex: any) => (
                                                     <li key={ex.id} className="list-group-item">
-                                                        <div className="d-flex justify-content-between align-items-start mb-2">
-                                                            <div className="d-flex gap-3 flex-grow-1">
+                                                        <div className="d-flex flex-column flex-md-row justify-content-between align-items-start gap-2 gap-md-0 mb-2">
+                                                            <div className="d-flex gap-2 gap-md-3 flex-grow-1 w-100">
                                                                 {/* Exercise Image */}
                                                                 {ex.exercise.imageUrl ? (
                                                                     <img
                                                                         src={ex.exercise.imageUrl}
                                                                         alt={ex.exercise.name}
-                                                                        className="rounded"
-                                                                        style={{ width: '80px', height: '80px', objectFit: 'cover', cursor: 'pointer' }}
+                                                                        className="rounded flex-shrink-0"
+                                                                        style={{
+                                                                            width: '60px',
+                                                                            height: '60px',
+                                                                            objectFit: 'cover',
+                                                                            cursor: 'pointer'
+                                                                        }}
                                                                         onClick={() => handleShowExerciseMedia(ex.exercise)}
                                                                         onError={(e) => {
                                                                             e.currentTarget.style.display = 'none';
@@ -257,40 +262,51 @@ export default function StudentDashboard() {
                                                                     />
                                                                 ) : (
                                                                     <div
-                                                                        style={{ width: '80px', height: '80px', backgroundColor: '#e9ecef', borderRadius: '0.375rem', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: ex.exercise.videoUrl ? 'pointer' : 'default' }}
+                                                                        className="flex-shrink-0"
+                                                                        style={{
+                                                                            width: '60px',
+                                                                            height: '60px',
+                                                                            backgroundColor: '#e9ecef',
+                                                                            borderRadius: '0.375rem',
+                                                                            display: 'flex',
+                                                                            alignItems: 'center',
+                                                                            justifyContent: 'center',
+                                                                            cursor: ex.exercise.videoUrl ? 'pointer' : 'default'
+                                                                        }}
                                                                         onClick={() => ex.exercise.videoUrl && handleShowExerciseMedia(ex.exercise)}
                                                                     >
-                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" className="text-muted" viewBox="0 0 16 16">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="text-muted" viewBox="0 0 16 16">
                                                                             <path d="M8.5 5.5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9V5.5" />
                                                                             <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5z" />
                                                                             <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708" />
                                                                         </svg>
                                                                     </div>
                                                                 )}
-                                                                <div className="flex-grow-1">
-                                                                    <div className="d-flex align-items-center gap-2">
-                                                                        <h6 className="mb-1">{ex.exercise.name}</h6>
+                                                                <div className="flex-grow-1 min-w-0">
+                                                                    <div className="d-flex align-items-center gap-2 flex-wrap">
+                                                                        <h6 className="mb-0">{ex.exercise.name}</h6>
                                                                         {ex.rest && (
                                                                             <button
-                                                                                className="btn btn-sm btn-outline-primary"
+                                                                                className="btn btn-sm btn-outline-primary d-flex align-items-center gap-1 px-2 py-1"
                                                                                 onClick={() => handleStartTimer(ex)}
                                                                                 title="Iniciar temporizador de descanso"
                                                                             >
-                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-stopwatch" viewBox="0 0 16 16">
+                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" className="bi bi-stopwatch" viewBox="0 0 16 16">
                                                                                     <path d="M8.5 5.6a.5.5 0 1 0-1 0v2.9h-3a.5.5 0 0 0 0 1H8a.5.5 0 0 0 .5-.5z" />
                                                                                     <path d="M6.5 1A.5.5 0 0 1 7 .5h2a.5.5 0 0 1 0 1v.57c1.36.196 2.594.78 3.584 1.64l.012-.013.354-.354-.354-.353a.5.5 0 0 1 .707-.708l1.414 1.415a.5.5 0 1 1-.707.707l-.353-.354-.354.354-.013.012A7 7 0 1 1 7 2.071V1.5a.5.5 0 0 1-.5-.5M8 3a6 6 0 1 0 .001 12A6 6 0 0 0 8 3" />
                                                                                 </svg>
+                                                                                <span className="d-none d-sm-inline">Timer</span>
                                                                             </button>
                                                                         )}
                                                                     </div>
-                                                                    <small className="text-muted">
+                                                                    <small className="text-muted d-block mt-1">
                                                                         {ex.sets} series x {ex.reps} reps @ {ex.weight ? `${ex.weight}kg` : 'Peso corporal'}
                                                                         {ex.rest && ` • Descanso: ${ex.rest}s`}
                                                                     </small>
                                                                 </div>
                                                             </div>
                                                             {/* Toggle Switch */}
-                                                            <div className="form-check form-switch">
+                                                            <div className="form-check form-switch ms-auto">
                                                                 <input
                                                                     className="form-check-input"
                                                                     type="checkbox"
@@ -299,14 +315,15 @@ export default function StudentDashboard() {
                                                                     onChange={(e) => handleCheck(ex.id, e.target.checked)}
                                                                     disabled={completedExercises.has(ex.id)}
                                                                 />
-                                                                <label className="form-check-label" htmlFor={`complete-${ex.id}`}>
-                                                                    {completedExercises.has(ex.id) ? 'Completado' : 'Pendiente'}
+                                                                <label className="form-check-label text-nowrap" htmlFor={`complete-${ex.id}`}>
+                                                                    <span className="d-none d-md-inline">{completedExercises.has(ex.id) ? 'Completado' : 'Pendiente'}</span>
+                                                                    <span className="d-md-none">{completedExercises.has(ex.id) ? '✓' : ''}</span>
                                                                 </label>
                                                             </div>
                                                         </div>
-                                                        <div className="row g-2 mt-2">
-                                                            <div className="col-md-6">
-                                                                <label className="form-label small">Peso usado (kg)</label>
+                                                        <div className="row g-2 mt-1">
+                                                            <div className="col-6 col-md-6">
+                                                                <label className="form-label small mb-1">Peso usado (kg)</label>
                                                                 <input
                                                                     type="number"
                                                                     className="form-control form-control-sm"
@@ -314,8 +331,8 @@ export default function StudentDashboard() {
                                                                     onChange={(e) => handleInputChange(ex.id, 'weight', e.target.value)}
                                                                 />
                                                             </div>
-                                                            <div className="col-md-6">
-                                                                <label className="form-label small">Reps realizadas</label>
+                                                            <div className="col-6 col-md-6">
+                                                                <label className="form-label small mb-1">Reps realizadas</label>
                                                                 <input
                                                                     type="text"
                                                                     className="form-control form-control-sm"
