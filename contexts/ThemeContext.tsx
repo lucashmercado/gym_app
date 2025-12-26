@@ -24,13 +24,13 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
         const savedTheme = localStorage.getItem('theme') as Theme
         if (savedTheme) {
             setTheme(savedTheme)
-            document.documentElement.setAttribute('data-theme', savedTheme)
+            document.documentElement.setAttribute('data-bs-theme', savedTheme)
         } else {
             // Check system preference
             const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
             const initialTheme = prefersDark ? 'dark' : 'light'
             setTheme(initialTheme)
-            document.documentElement.setAttribute('data-theme', initialTheme)
+            document.documentElement.setAttribute('data-bs-theme', initialTheme)
         }
     }, [])
 
@@ -38,7 +38,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
         const newTheme = theme === 'light' ? 'dark' : 'light'
         setTheme(newTheme)
         localStorage.setItem('theme', newTheme)
-        document.documentElement.setAttribute('data-theme', newTheme)
+        document.documentElement.setAttribute('data-bs-theme', newTheme)
     }
 
     // Prevent flash of unstyled content

@@ -44,7 +44,7 @@ export default function Sidebar({ items, userRole, userName }: NavbarProps) {
                                     {item.name === 'Mensajes' && <MessageBadge />}
                                 </Link>
                             </li>
-                        ))}\r
+                        ))}
                         {/* Admin Menu - Only show if user is ADMIN */}
                         {userRole === 'ADMIN' && (
                             <li className="nav-item dropdown">
