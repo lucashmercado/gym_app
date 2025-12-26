@@ -3,6 +3,10 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Sidebar from '@/components/Sidebar'
+import RestTimer from '@/components/RestTimer'
+import ConfirmationModal from '@/components/ConfirmationModal'
+import toastr from 'toastr'
+import 'toastr/build/toastr.min.css'
 
 const studentNavItems = [
     { name: 'Mi Rutina', href: '/dashboard/student' },
@@ -17,9 +21,24 @@ export default function StudentDashboard() {
     const [completedExercises, setCompletedExercises] = useState<Set<string>>(new Set())
     const [selectedExercise, setSelectedExercise] = useState<any>(null)
     const [showModal, setShowModal] = useState(false)
+    const [activeTimer, setActiveTimer] = useState<{ exercise: any, rest: number } | null>(null)
+    const [resetConfirmation, setResetConfirmation] = useState<{ show: boolean, day: string | null }>({ show: false, day: null })
     const router = useRouter()
 
     useEffect(() => {
+        // Configure toastr
+        toastr.options = {
+            closeButton: true,
+            progressBar: true,
+            positionClass: 'toast-top-right',
+            timeOut: 3000,
+            extendedTimeOut: 1000,
+            showMethod: 'fadeIn',
+            hideMethod: 'fadeOut',
+            showDuration: 300,
+            hideDuration: 300,
+        }
+
         fetch('/api/auth/me')
             .then((res) => res.json())
             .then((data) => {
@@ -89,16 +108,19 @@ export default function StudentDashboard() {
 
         if (res.ok) {
             setCompletedExercises(prev => new Set([...prev, planExerciseId]))
-            alert('¡Ejercicio marcado como completado!')
+            toastr.success('¡Ejercicio marcado como completado!')
         } else {
-            alert('Error al marcar el ejercicio')
+            toastr.error('Error al marcar el ejercicio')
         }
     }
 
-    const handleResetDay = async (day: string) => {
-        if (!confirm(`¿Estás seguro de que quieres reiniciar todos los ejercicios de ${day}?`)) {
-            return
-        }
+    const handleResetDay = (day: string) => {
+        setResetConfirmation({ show: true, day })
+    }
+
+    const confirmResetDay = async () => {
+        const day = resetConfirmation.day
+        if (!day) return
 
         const res = await fetch(`/api/student/progress/today?day=${encodeURIComponent(day)}`, {
             method: 'DELETE'
@@ -112,10 +134,15 @@ export default function StudentDashboard() {
                 dayExerciseIds.forEach((id: string) => newSet.delete(id))
                 return newSet
             })
-            alert(`Día ${day} reiniciado exitosamente`)
+            toastr.success(`Día ${day} reiniciado exitosamente`)
         } else {
-            alert('Error al reiniciar el día')
+            toastr.error('El día ya ha sido reiniciado o hubo un error')
         }
+        setResetConfirmation({ show: false, day: null })
+    }
+
+    const cancelResetDay = () => {
+        setResetConfirmation({ show: false, day: null })
     }
 
     const handleShowExerciseMedia = (exercise: any) => {
@@ -126,6 +153,15 @@ export default function StudentDashboard() {
     const handleCloseModal = () => {
         setShowModal(false)
         setSelectedExercise(null)
+    }
+
+    const handleStartTimer = (exercise: any) => {
+        const restTime = exercise.rest || 60 // Default 60 seconds if no rest time specified
+        setActiveTimer({ exercise, rest: restTime })
+    }
+
+    const handleCloseTimer = () => {
+        setActiveTimer(null)
     }
 
     return (
@@ -232,9 +268,24 @@ export default function StudentDashboard() {
                                                                     </div>
                                                                 )}
                                                                 <div className="flex-grow-1">
-                                                                    <h6 className="mb-1">{ex.exercise.name}</h6>
+                                                                    <div className="d-flex align-items-center gap-2">
+                                                                        <h6 className="mb-1">{ex.exercise.name}</h6>
+                                                                        {ex.rest && (
+                                                                            <button
+                                                                                className="btn btn-sm btn-outline-primary"
+                                                                                onClick={() => handleStartTimer(ex)}
+                                                                                title="Iniciar temporizador de descanso"
+                                                                            >
+                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-stopwatch" viewBox="0 0 16 16">
+                                                                                    <path d="M8.5 5.6a.5.5 0 1 0-1 0v2.9h-3a.5.5 0 0 0 0 1H8a.5.5 0 0 0 .5-.5z" />
+                                                                                    <path d="M6.5 1A.5.5 0 0 1 7 .5h2a.5.5 0 0 1 0 1v.57c1.36.196 2.594.78 3.584 1.64l.012-.013.354-.354-.354-.353a.5.5 0 0 1 .707-.708l1.414 1.415a.5.5 0 1 1-.707.707l-.353-.354-.354.354-.013.012A7 7 0 1 1 7 2.071V1.5a.5.5 0 0 1-.5-.5M8 3a6 6 0 1 0 .001 12A6 6 0 0 0 8 3" />
+                                                                                </svg>
+                                                                            </button>
+                                                                        )}
+                                                                    </div>
                                                                     <small className="text-muted">
                                                                         {ex.sets} series x {ex.reps} reps @ {ex.weight ? `${ex.weight}kg` : 'Peso corporal'}
+                                                                        {ex.rest && ` • Descanso: ${ex.rest}s`}
                                                                     </small>
                                                                 </div>
                                                             </div>
@@ -340,6 +391,25 @@ export default function StudentDashboard() {
                     </div>
                 </div>
             )}
+
+            {/* Rest Timer Modal */}
+            {activeTimer && (
+                <RestTimer
+                    initialTime={activeTimer.rest}
+                    exerciseName={activeTimer.exercise.exercise.name}
+                    onClose={handleCloseTimer}
+                />
+            )}
+
+            <ConfirmationModal
+                show={resetConfirmation.show}
+                title="Reiniciar Día"
+                message={`¿Estás seguro de que quieres reiniciar todos los ejercicios de ${resetConfirmation.day}? Esta acción no se puede deshacer.`}
+                onConfirm={confirmResetDay}
+                onCancel={cancelResetDay}
+                confirmText="Sí, reiniciar"
+                confirmButtonVariant="danger"
+            />
         </div>
     )
 }
